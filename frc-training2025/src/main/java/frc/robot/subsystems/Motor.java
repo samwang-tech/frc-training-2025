@@ -18,8 +18,8 @@ import frc.robot.constants.MotorConstants;
 
 public class Motor extends SubsystemBase {
   /** Creates a new Motor. */
-  private SparkMax m_motor = new SparkMax(MotorConstants.kMotorID, MotorType.kBrushless);
-  private SparkMaxConfig m_config = new SparkMaxConfig();
+  private final SparkMax m_motor = new SparkMax(MotorConstants.kMotorID, MotorType.kBrushless);
+  private final SparkMaxConfig m_config = new SparkMaxConfig();
   public Motor() {
     m_config.idleMode(IdleMode.kBrake);
     m_motor.configure(m_config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
@@ -30,6 +30,10 @@ public class Motor extends SubsystemBase {
   public double getSpeed(){
     return m_motor.get();
   }
+  public SparkMaxConfig getConfig() {
+    return m_config;
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
