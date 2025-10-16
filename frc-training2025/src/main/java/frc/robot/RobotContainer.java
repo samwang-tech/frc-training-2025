@@ -4,21 +4,24 @@
 
 package frc.robot;
 
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import frc.robot.commands.ArcadeMotor;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.constants.IOConstants;
-import frc.robot.subsystems.Motor;
+import frc.robot.subsystems.Drive;
+
 
 public class RobotContainer {
-  private Motor m_motor = new Motor();
-  private Joystick m_joystick = new Joystick(IOConstants.kJoystickPort);
-  private ArcadeMotor m_arcadeMotor = new ArcadeMotor(m_motor, m_joystick);
-  
+  private Drive m_drive = new Drive();
+  private Joystick m_joystick = new Joystick (IOConstants.kJoystickPort);
+  private ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_drive, m_joystick);
+  // Initializing needed classes for the Drive Train;
+
   public RobotContainer() {
-    m_motor.setDefaultCommand(m_arcadeMotor);
-    configureBindings();
+    m_drive.setDefaultCommand(m_arcadeDrive); // Set the default command to Arcade Drive
+    configureBindings(); // Not sure what this does?
   }
 
   private void configureBindings() {}
