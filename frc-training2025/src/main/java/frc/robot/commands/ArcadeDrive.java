@@ -6,7 +6,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.constants.MotorConstants;
+import frc.robot.constants.DriveConstants;
+import frc.robot.constants.IOConstants;
 import frc.robot.subsystems.Drive;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
@@ -35,18 +36,11 @@ public class ArcadeDrive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_speed = m_joystick.getY() * MotorConstants.kMotorMultiplier;
-    m_turn = m_joystick.getX() * MotorConstants.kMotorMultiplier;
+    m_speed = m_joystick.getRawAxis(IOConstants.kJoystickYAxis) * DriveConstants.kDriveMultiplier;
+    m_turn = m_joystick.getRawAxis(IOConstants.kJoystickXAxis) * DriveConstants.kDriveMultiplier;
     // Get inputs from joystick controller
-    if (m_speed>=0){
       m_left = m_speed + m_turn;
       m_right = m_speed - m_turn;
-    }
-    else 
-    if (m_speed<0){
-      m_left = m_speed - m_turn;
-      m_right = m_speed + m_turn;
-    } // So the drive train will move correctly based on input from 
     m_drive.setLeftSpeed(m_left);
     m_drive.setRightSpeed(m_right);
     // Setting the drive train wheel speeds with subsystem methods

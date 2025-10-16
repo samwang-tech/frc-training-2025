@@ -11,15 +11,15 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.MotorConstants;
+import frc.robot.constants.DriveConstants;
 
 public class Drive extends SubsystemBase {
   /** Creates a new Drive. */
   
-  private TalonSRX m_rightPrimaryMotor = new TalonSRX(MotorConstants.kTalonRight);
-  private TalonSRX m_leftPrimaryMotor = new TalonSRX(MotorConstants.kTalonLeft);
-  private VictorSPX m_rightSubMotor = new VictorSPX(MotorConstants.kVictorRight);
-  private VictorSPX m_leftSubMotor = new VictorSPX(MotorConstants.kVictorLeft);
+  private TalonSRX m_rightPrimaryMotor = new TalonSRX(DriveConstants.kTalonRight);
+  private TalonSRX m_leftPrimaryMotor = new TalonSRX(DriveConstants.kTalonLeft);
+  private VictorSPX m_rightSubMotor = new VictorSPX(DriveConstants.kVictorRight);
+  private VictorSPX m_leftSubMotor = new VictorSPX(DriveConstants.kVictorLeft);
   
   /* Have initiated all motor objects and defined them as right or left and primary or follewer/sub */
   
@@ -29,6 +29,7 @@ public class Drive extends SubsystemBase {
     m_rightSubMotor.follow(m_rightPrimaryMotor); // Supporting motors
     m_leftSubMotor.follow(m_leftPrimaryMotor);
     m_rightPrimaryMotor.setInverted(true); // Right side is flipped compared to left
+    m_rightSubMotor.setInverted(true);
   }
 
   public void setRightSpeed(double speed){

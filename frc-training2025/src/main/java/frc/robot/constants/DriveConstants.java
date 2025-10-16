@@ -5,10 +5,10 @@
 package frc.robot.constants;
 
 /** Add your docs here. */
-public class MotorConstants {
+public class DriveConstants {
     public static final int kTalonRight = 0;
     public static final int kTalonLeft = 1;
     public static final int kVictorRight = 0;
     public static final int kVictorLeft = 1;
-    public final static double kMotorMultiplier = 0.5;
+    public final static double kDriveMultiplier = 0.5;
 }

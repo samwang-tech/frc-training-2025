@@ -6,5 +6,7 @@ package frc.robot.constants;
 
 /** Add your docs here. */
 public class IOConstants {
-    public final static int kJoystickPort = 1;
+    public static final int kJoystickPort = 1;
+    public static final int kJoystickXAxis = 0;
+    public static final int kJoystickYAxis = 1;
 }
