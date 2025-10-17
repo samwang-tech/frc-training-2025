@@ -36,8 +36,8 @@ public class ArcadeDrive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_speed = m_joystick.getRawAxis(IOConstants.kJoystickYAxis) * DriveConstants.kDriveMultiplier;
-    m_turn = m_joystick.getRawAxis(IOConstants.kJoystickXAxis) * DriveConstants.kDriveMultiplier;
+    m_speed = m_joystick.getRawAxis(IOConstants.kJoystickSpeedAxis) * DriveConstants.kDriveMultiplier;
+    m_turn = m_joystick.getRawAxis(IOConstants.kJoystickTurnAxis) * DriveConstants.kDriveMultiplier;
     // Get inputs from joystick controller
       m_left = m_speed + m_turn;
       m_right = m_speed - m_turn;

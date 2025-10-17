@@ -35,15 +35,19 @@ public class Drive extends SubsystemBase {
   public void setRightSpeed(double speed){
     m_rightPrimaryMotor.set(ControlMode.PercentOutput, speed);
   } // set right motor speed in percentage to full power
+
   public void setLeftSpeed(double speed){
     m_leftPrimaryMotor.set(ControlMode.PercentOutput, speed);
   } // set left motor speed in percentage to full power
+
   public double getRightSpeed(){
     return m_rightPrimaryMotor.getMotorOutputPercent();
   } // get the output percent from the motor
+
   public double getLeftSpeed(){
     return m_leftPrimaryMotor.getMotorOutputPercent();
   } // get the output percent from the motor
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
