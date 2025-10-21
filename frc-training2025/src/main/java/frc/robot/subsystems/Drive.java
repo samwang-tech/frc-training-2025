@@ -29,7 +29,7 @@ public class Drive extends SubsystemBase {
     m_rightSubMotor.follow(m_rightPrimaryMotor); // Supporting motors
     m_leftSubMotor.follow(m_leftPrimaryMotor);
     m_rightPrimaryMotor.setInverted(true); // Right side is flipped compared to left
-    m_rightSubMotor.setInverted(true);
+    m_rightSubMotor.setInverted(true); // Have to also invert following motor
   }
 
   public void setRightSpeed(double speed){
