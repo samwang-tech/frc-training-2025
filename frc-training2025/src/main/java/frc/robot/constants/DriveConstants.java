@@ -6,9 +6,9 @@ package frc.robot.constants;
 
 /** Add your docs here. */
 public class DriveConstants {
-    public static final int kTalonRight = 0;
-    public static final int kTalonLeft = 5;
-    public static final int kVictorRight = 8;
-    public static final int kVictorLeft = 7;
+    public static final int kTalonRight = 5;
+    public static final int kTalonLeft = 6;
+    public static final int kVictorRight = 7;
+    public static final int kVictorLeft = 8;
     public final static double kDriveMultiplier = 0.5;
 }
