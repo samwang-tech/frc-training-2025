@@ -17,10 +17,10 @@ public class MoveForTime extends Command {
   private double m_timeLengthSeconds;
   public MoveForTime(Drive drive, double timerLength, double speed) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_drive);
     m_timeLengthSeconds = timerLength;
     m_speed = speed;
     m_drive = drive;
+    addRequirements(m_drive);
   }
 
   // Called when the command is initially scheduled.
