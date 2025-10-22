@@ -10,5 +10,7 @@ public class DriveConstants {
     public static final int kTalonLeft = 6;
     public static final int kVictorRight = 7;
     public static final int kVictorLeft = 8;
-    public final static double kDriveMultiplier = 0.5;
+    public static final double kDriveMultiplier = 0.5;
+    public static final double kTimeInSeconds = 20;
+    public static final double kSpeed = 0.5;
 }
