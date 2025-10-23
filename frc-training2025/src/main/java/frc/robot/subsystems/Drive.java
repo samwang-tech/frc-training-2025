@@ -48,6 +48,14 @@ public class Drive extends SubsystemBase {
     return m_leftPrimaryMotor.getMotorOutputPercent();
   } // get the output percent from the motor
   
+  public double getLeftTicks(){
+    return m_leftPrimaryMotor.getSelectedSensorPosition();
+  }
+
+  public double getRightTicks(){
+    return m_rightPrimaryMotor.getSelectedSensorPosition();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
