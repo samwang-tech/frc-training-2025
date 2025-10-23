@@ -28,7 +28,7 @@ public class MoveForDistance extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_ticksNeeded = (int)((m_distanceInFeet / DriveConstants.kCircumferenceOfWheel) * DriveConstants.kTicksInRotation);
+    m_ticksNeeded = (int)((m_distanceInFeet / DriveConstants.kCircumferenceOfWheelFeet) * DriveConstants.kTicksInRotation);
     m_ticksStarted = m_drive.getRightTicks();
   }
 
