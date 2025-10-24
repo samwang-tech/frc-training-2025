@@ -13,7 +13,7 @@ public class DriveConstants {
     public static final double kDriveMultiplier = 0.5;
     public static final double kTimeInSeconds = 3;
     public static final double kSpeed = 0.4;
-    public static final double kCircumferenceOfWheelFeet = 1;
+    public static final double kDiameterOfWheelFeet = 1;
     public static final double kTicksInRotation = 1;
     public static final double kDistanceInFeet = 5;
 }

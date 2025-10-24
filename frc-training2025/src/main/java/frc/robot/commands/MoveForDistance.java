@@ -4,6 +4,8 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.util.sendable.Sendable;
+import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.constants.DriveConstants;
 import frc.robot.subsystems.Drive;
@@ -11,6 +13,7 @@ import frc.robot.subsystems.Drive;
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class MoveForDistance extends Command {
   /** Creates a new MoveForDistance. */
+  private MoveForDistanceSendable m_moveForDistanceSendable = new MoveForDistanceSendable();
   private Drive m_drive;
   private double m_distanceInFeet;
   private double m_speed;
@@ -28,7 +31,7 @@ public class MoveForDistance extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_ticksNeeded = (int)((m_distanceInFeet / DriveConstants.kCircumferenceOfWheelFeet) * DriveConstants.kTicksInRotation);
+    m_ticksNeeded = ((m_distanceInFeet / (Math.PI * DriveConstants.kDiameterOfWheelFeet)) * DriveConstants.kTicksInRotation);
     m_ticksStarted = m_drive.getRightTicks();
   }
 
@@ -51,5 +54,20 @@ public class MoveForDistance extends Command {
   @Override
   public boolean isFinished() {
     return m_ticksNeeded <= m_ticksChanged;
+  }
+
+  public MoveForDistanceSendable getSendable(){
+    return m_moveForDistanceSendable;
+  }
+
+  private class MoveForDistanceSendable implements Sendable{
+    @Override
+    public void initSendable(SendableBuilder builder) {
+      builder.setSmartDashboardType("Move For Distance");
+      builder.addDoubleProperty("Speed", () -> m_speed, (double speed) -> {m_speed=speed;});
+      builder.addDoubleProperty("Ticks Changed", () -> m_ticksChanged, null);
+      builder.addDoubleProperty("Target Ticks", () -> m_ticksNeeded, null);
+      builder.addDoubleProperty("Target Feet", () -> m_distanceInFeet, null);
+    }
   }
 }
